@@ -2,6 +2,7 @@ package chainkd
 
 import (
 	"io"
+	"fmt"
 
 	"github.com/bytom/crypto/ed25519"
 )
@@ -13,7 +14,10 @@ func NewXKeys(r io.Reader) (xprv XPrv, xpub XPub, err error) {
 	if err != nil {
 		return
 	}
-	return xprv, xprv.XPub(), nil
+	xpub = xprv.XPub()
+	fmt.Printf("xprv: %x\n", xprv[:])
+	fmt.Printf("xpub: %x\n", xpub[:])
+	return xprv, xpub, nil
 }
 
 func XPubKeys(xpubs []XPub) []ed25519.PublicKey {

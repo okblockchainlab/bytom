@@ -14,10 +14,12 @@ TARGET_OS=`uname -s`
 case "$TARGET_OS" in
   Darwin)
     EXT=dylib
+    export CGO_CFLAGS="-I${JAVA_HOME}/include -I${JAVA_HOME}/include/darwin"
     ;;
   Linux)
     EXT=so
     NM_FLAGS=-D
+    export CGO_CFLAGS="-I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux"
     ;;
   *)
   echo "Unknown platform!" >&2

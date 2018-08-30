@@ -41,8 +41,8 @@ type OKUTXO struct {
 }
 
 type OKAction struct {
-	Type        string
-	Transaction OKUTXO
+	Type string
+	Utxo OKUTXO
 }
 
 type OKBuildRequest struct {
@@ -109,7 +109,7 @@ func decodeSpendUTXOAction(data []byte, xpub *chainkd.XPub) (txbuilder.Action, e
 		return nil, fmt.Errorf("unmarshal OKAction error. %v", err)
 	}
 
-	a := &spendUTXOAction{okUTXO2UTXO(&okact.Transaction), xpub}
+	a := &spendUTXOAction{okUTXO2UTXO(&okact.Utxo), xpub}
 	return a, nil
 }
 

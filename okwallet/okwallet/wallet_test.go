@@ -34,7 +34,7 @@ func TestCreateRawTransaction(t *testing.T) {
 		"actions":[
 			{
 				"type":"spend_account_unspent_output",
-				"transaction":{
+				"utxo":{
 					"account_alias": "default",
 					"account_id": "0BKBR2D2G0A02",
 					"address": "bm1qx7ylnhszg24995d5e0nftu9e87kt9vnxcn633r",
